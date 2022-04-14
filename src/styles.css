@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.borderText {
+  padding-left: 2px;
+  margin-top:-12px;
+  margin-left:5px;
+  margin-right: 10px;
+  background:white;
+  font-size: 15px;
+}
+
+.btn-primary {
+  border-radius: 50%;
+  font-size: 130%;
+  margin: 10px 5px 20px 10px;
+  font-weight: bold;
+}
+
+.sectionForm{
+  border: 2px solid black;
+  margin-left: 10px;
+  padding-bottom: 10px;
+  width: 800px;
+}
+
+.help-block {
+  color: red;
+}
+
+
