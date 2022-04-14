@@ -1,0 +1,74 @@
+
+  <div class="row" id="addButtonRowJobs">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" id="addButton" type="button" (click)="onAdd()">+</button>
+      <h3 style="display: inline;">Add Jobs</h3>
+    </div>
+  </div>
+  <span class="help-block" *ngIf="jobs.length < 1 && isSubmitted">Please complete at least one jobs form</span>
+  <div [formGroup]="jobsFormGroup">
+    <ng-container formArrayName="jobs">
+      <ng-container *ngFor="let jobsForm of jobs; let i=index">
+        <div class="form-group col-xs-12 sectionForm" [formGroupName]="i">
+          <h1 class="borderText" style="width: 63px;">Job form</h1>
+          <div class="row">
+            <button class="btn btn-danger pull-right" style="margin-right: 20px" (click)="onDelete(i)">X</button>
+          </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <input type="text" class="form-control" placeholder="Job name" formControlName="jobTitle">
+              <span class="help-block" *ngIf="!jobsForm.get('jobTitle').valid && isSubmitted">Please complete the field</span>
+            </div>
+          </div>
+          <div class="row" style="margin-left: 4px;">
+            <h5>Start date</h5>
+          </div>
+          <div formGroupName="dates">
+            <div class="row">
+              <div class="col-xs-7">
+                <input type="date" class="form-control" placeholder="/ /" formControlName="enterDate" >
+                <span class="help-block" *ngIf="!jobsForm.get('dates.enterDate').valid && isSubmitted">Please enter a valid date</span>
+              </div>
+              <div class="col-xs-1">
+                <span class="add-on" style="font-size: 200%; " ><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+            </div>
+            <div class="row" style="margin-left: 4px;">
+              <h5>End date</h5>
+            </div>
+            <div class="row">
+              <div class="col-xs-7">
+                <input type="date" class="form-control" placeholder="/ /" formControlName="endDate" [attr.disabled]="checkBox.checked ? true : null" ng-checked="" #endDate >
+                <span class="help-block" *ngIf="!jobsForm.get('dates.endDate').valid && isSubmitted">Please enter a valid date</span>
+                <span class="help-block" *ngIf="!jobsForm.get('dates').valid
+                && isSubmitted
+                && jobsForm.get('dates.endDate').valid
+                && jobsForm.get('dates.enterDate').valid"
+                >You can't start after end!</span>
+              </div>
+              <div class="col-xs-1">
+                <span class="add-on" style="font-size: 200%; position: relative; bottom: 0;" ><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              <div class="col-xs-3">
+                <input type="checkbox" style="-webkit-transform: scale(160%); margin-top: 10px; margin-right: 12px;" formControlName="inPresent" [attr.disabled]="jobs.length-1 !== i ? true : null" (change)="onChange(i, $event)" #checkBox>
+                <h5 style="display: inline;">In present</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 23px;">
+            <div class="col-xs-2">
+              <input type="text" class="form-control" placeholder="city" formControlName="city">
+              <span class="help-block" *ngIf="!jobsForm.get('city').valid && isSubmitted">Please complete the field</span>
+            </div>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" placeholder="Company name" formControlName="companyName">
+              <span class="help-block" *ngIf="!jobsForm.get('companyName').valid && isSubmitted">Please complete the field</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+

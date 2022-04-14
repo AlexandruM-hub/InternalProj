@@ -1,0 +1,9 @@
+@media (max-width: 545px){
+  #addButtonRowJobs {
+    margin-bottom: 15px;
+  }
+}
+
+.sectionForm{
+  height: 500px;
+}

@@ -1,0 +1,17 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group col-xs-12" id="general">
+    <input type="text" class="form-control" placeholder="FirstName" name="firstName" ngModel required #firstName="ngModel">
+    <span class="help-block" *ngIf="!firstName.valid && isSubmitted">Please complete the field</span>
+    <input type="text" class="form-control" placeholder="lastName" name="lastName" ngModel required #lastName="ngModel">
+    <span class="help-block" *ngIf="!lastName.valid && isSubmitted">Please complete the field</span>
+    <input type="email" class="form-control" placeholder="email" name="email" ngModel required email #email="ngModel">
+    <span class="help-block" *ngIf="!email.valid && isSubmitted">Please enter a valid email</span>
+    <input type="text" class="form-control" placeholder="Phone (+373 ...)" name="phone" ngModel required pattern="([+](373)|(0))(\d{8})" #phone="ngModel">
+    <span class="help-block" *ngIf="!phone.valid && isSubmitted">Please enter a valid phone number</span>
+    <input type="text" class="form-control" placeholder="Physical Address" name="physicalAddress" ngModel required #physicalAddress="ngModel">
+    <span class="help-block" *ngIf="!physicalAddress.valid && isSubmitted">Please complete the field</span>
+    <input type="text" class="form-control" placeholder="Profession" name="profession" ngModel required #profession="ngModel">
+    <span class="help-block" *ngIf="!profession.valid && isSubmitted">Please complete the field</span>
+  </div>
+</form>
+
