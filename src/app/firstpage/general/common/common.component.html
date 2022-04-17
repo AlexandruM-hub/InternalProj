@@ -1,0 +1,15 @@
+<div [formGroup]="commonFormGroup">
+  <ng-container formArrayName="fields">
+    <ng-container *ngFor="let control of generalFormArray.controls; let i=index">
+      <div class="form-group" [formGroupName]="i">
+        <input type="text" class="form-control" formControlName="inputField" [placeholder]="getPlaceholder(i)">
+        <span class="help-block" *ngIf="!control.get('inputField').valid && isSubmitted">{{getErrorMessage(i)}}</span>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+
+
+
+
