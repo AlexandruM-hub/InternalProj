@@ -5,10 +5,10 @@
         <h3 style="display: inline;">Add Education</h3>
       </div>
     </div>
-    <span class="help-block" *ngIf="educations.length < 1 && isSubmitted">Please complete at least one education form</span>
+    <span class="help-block" *ngIf="getEducationsFormArray.controls.length < 1 && isSubmitted">Please complete at least one education form</span>
     <div [formGroup]="educationFormGroup">
       <ng-container formArrayName="educations">
-          <ng-container *ngFor="let educationForm of educations; let i=index">
+          <ng-container *ngFor="let educationForm of getEducationsFormArray.controls; let i=index">
             <div class="form-group col-xs-12 sectionForm" [formGroupName]="i">
               <h1 class="borderText" style="width: 105px;">Education form</h1>
               <div class="row">

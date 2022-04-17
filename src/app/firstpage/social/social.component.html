@@ -6,7 +6,7 @@
 </div>
 <div [formGroup]="socialFormGroup">
   <ng-container formArrayName="socials">
-    <div class="row" *ngFor="let link of links; let i=index" style="margin-bottom: 10px;">
+    <div class="row" *ngFor="let link of links.controls; let i=index" style="margin-bottom: 10px;">
       <div [formGroupName]="i">
         <div class="row">
           <div class="col-xs-10">

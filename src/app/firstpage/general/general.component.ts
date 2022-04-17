@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
+import {CommonComponent} from "./common/common.component";
 
 @Component({
   selector: 'app-general',
@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
   styleUrls: ['./general.component.css'],
 })
 export class GeneralComponent implements OnInit {
-  @ViewChild('f', {static: false}) public generalForm: NgForm;
+  @ViewChild(CommonComponent) common: CommonComponent;
   isSubmitted = false;
 
   constructor() {}
@@ -16,6 +16,10 @@ export class GeneralComponent implements OnInit {
 
   onSubmit(){
     this.isSubmitted = true;
-    console.log(this.generalForm.value)
+    this.common.onSubmit();
+  }
+
+  sendDataToService(){
+    this.common.sendDataToService();
   }
 }
