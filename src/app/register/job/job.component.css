@@ -1,0 +1,43 @@
+@media (max-width: 545px){
+  .addButtonRowJobs {
+    margin-bottom: 15px;
+  }
+}
+
+.sectionForm{
+  height: 500px;
+}
+
+h3 {
+  display: inline;
+}
+
+.borderText {
+  width: 63px;
+}
+
+button {
+  margin-right: 20px
+}
+
+.dateRow {
+  margin-left: 4px;
+}
+
+.glyphicon {
+  font-size: 200%;
+}
+
+.check {
+  -webkit-transform: scale(160%);
+  margin-top: 10px;
+  margin-right: 12px;
+}
+
+.inPresent {
+  display: inline;
+}
+
+.lastRow {
+  margin-top: 23px;
+}

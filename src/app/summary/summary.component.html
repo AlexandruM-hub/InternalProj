@@ -1,0 +1,48 @@
+<div class="form-group summary">
+    <div class="row">
+        <h3><b>Your details</b></h3>
+        <p><b>Name:</b> {{userDetails?.firstName}} {{userDetails?.lastName}}</p>
+        <p><b>Email:</b> {{userDetails?.email}}</p>
+        <p><b>Phone:</b> {{userDetails?.phone}}</p>
+        <p><b>Address:</b> {{userDetails?.address}}</p>
+        <p><b>Profession:</b> {{userDetails?.profession}}</p>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div *ngFor="let socialLink of userDetails?.socialLinks" class="linkClass">
+                <a [attr.href]="socialLink"
+                   [attr.class]="getWebName(socialLink?.link)"
+                   target="_blank"></a>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <h3><b>Your Education</b></h3>
+            <div class="list-wrap">
+                <div class="list">
+                    <div *ngFor="let education of userDetails?.educations" class="listElement">
+                        {{education?.educationTitle}} <br>
+                        {{education?.educationType}} / {{education?.graduationDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <h3><b>Your jobs</b></h3>
+        <div class="list-wrap">
+            <div class="list">
+                <div *ngFor="let job of userDetails?.jobs" class="listElement">
+                    {{job?.jobTitle}} at {{job?.companyName}} in {{job?.city}} <br>
+                    From {{job?.startDate}} to {{job?.endDate}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button class="btn btn-danger backButton" type="button" (click)="onBackButton()">Back</button>
+    <button class="btn btn-success saveButton" type="button" (click)="onSave()">Save</button>
+</div>
+

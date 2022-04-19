@@ -1,0 +1,29 @@
+@media (max-width: 714px) {
+  .addButtonRowEducation {
+    margin-bottom: 15px;
+  }
+}
+
+.sectionForm {
+  height: 270px;
+}
+
+h3 {
+  display: inline;
+}
+
+button {
+  margin-right: 20px;
+}
+
+.borderText {
+  width: 105px;
+}
+
+.selectionRow {
+  margin-top:30px;
+}
+
+.glyphicon {
+  font-size: 200%;
+}

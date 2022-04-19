@@ -1,0 +1,54 @@
+<div class="form-group">
+    <div class="row addButtonRowEducation">
+        <div class="col-xs-12">
+            <button class="btn btn-primary" type="button" (click)="onAdd()">+</button>
+            <h3>Add Education</h3>
+        </div>
+    </div>
+    <span class="help-block" *ngIf="getEducationsFormArray.controls.length < 1 && isSubmitted">Please complete at least one education form</span>
+    <div [formGroup]="educationFormGroup">
+        <ng-container formArrayName="educations">
+            <ng-container *ngFor="let educationForm of getEducationsFormArray.controls; let i=index">
+                <div class="form-group col-xs-12 sectionForm" [formGroupName]="i">
+                    <h1 class="borderText">Education form</h1>
+                    <div class="row">
+                        <button class="btn btn-danger pull-right" (click)="onDelete(i)">X</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5"></div>
+                        <div class="col-xs-6"><label>Graduation date</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" placeholder="Education title"
+                                   formControlName="title">
+                            <span class="help-block" *ngIf="!educationForm.get('title').valid && isSubmitted">Please complete the field</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="date" class="form-control" placeholder="/ /" formControlName="date">
+                            <span class="help-block" *ngIf="!educationForm.get('date').valid && isSubmitted">Please enter a valid date</span>
+                        </div>
+                        <div class="col-xs-1">
+                            <span class="add-on"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="row selectionRow">
+                        <div class="col-xs-5">
+                            <select class="form-select" aria-label="Education type" formControlName="type">
+                                <option value="" disabled selected hidden>Education type</option>
+                                <option value="1">Bachelor</option>
+                                <option value="2">Superior</option>
+                                <option value="3">Lyceum</option>
+                            </select>
+                            <span class="help-block" *ngIf="!educationForm.get('type').valid && isSubmitted">Please select education type</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+
+
+
+
