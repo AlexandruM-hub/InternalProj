@@ -1,11 +1,11 @@
 <div class="form-group summary">
     <div class="row">
-        <h3><b>Your details</b></h3>
-        <p><b>Name:</b> {{userDetails?.firstName}} {{userDetails?.lastName}}</p>
-        <p><b>Email:</b> {{userDetails?.email}}</p>
-        <p><b>Phone:</b> {{userDetails?.phone}}</p>
-        <p><b>Address:</b> {{userDetails?.address}}</p>
-        <p><b>Profession:</b> {{userDetails?.profession}}</p>
+        <h3><strong>Your details</strong></h3>
+        <p><strong>Name:</strong> {{userDetails?.firstName}} {{userDetails?.lastName}}</p>
+        <p><strong>Email:</strong> {{userDetails?.email}}</p>
+        <p><strong>Phone:</strong> {{userDetails?.phone}}</p>
+        <p><strong>Address:</strong> {{userDetails?.address}}</p>
+        <p><strong>Profession:</strong> {{userDetails?.profession}}</p>
     </div>
     <div class="form-group">
         <div class="row">
@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
         <div class="row">
-            <h3><b>Your Education</b></h3>
+            <h3><strong>Your Education</strong></h3>
             <div class="list-wrap">
                 <div class="list">
                     <div *ngFor="let education of userDetails?.educations" class="listElement">
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="row form-group">
-        <h3><b>Your jobs</b></h3>
+        <h3><strong>Your jobs</strong></h3>
         <div class="list-wrap">
             <div class="list">
                 <div *ngFor="let job of userDetails?.jobs" class="listElement">
@@ -42,7 +42,9 @@
     </div>
 </div>
 <div class="row">
-    <button class="btn btn-danger backButton" type="button" (click)="onBackButton()">Back</button>
-    <button class="btn btn-success saveButton" type="button" (click)="onSave()">Save</button>
+    <button class="btn btn-danger backButton" type="button" (click)="onBackButton()">Back
+    </button>
+    <button class="btn btn-success saveButton" type="button" [disabled]="isDisabled" (click)="onSave()">Save
+    </button>
 </div>
 

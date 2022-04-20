@@ -28,13 +28,12 @@ export class RegisterComponent {
 
     onSubmit() {
         this.toSubmit = true;
-
         if (this.validationService.checkComponentsValidity(
             this.educationComponent,
             this.jobsComponent,
             this.generalComponent)) {
 
-            this.generalComponent.common.sendDataToService();
+            this.generalComponent.sendGeneralModelToService();
             this.educationComponent.sendEducationsToService();
             this.jobsComponent.sendJobsToService();
             this.socialComponent.sendSocialToService();

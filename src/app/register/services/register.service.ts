@@ -32,17 +32,24 @@ export class RegisterService {
     }
 
     getUserDetails() {
+        const model = !this.generalModel ?
+            new GeneralModel('', '', '', '', '', '') :
+            this.generalModel;
         return new UserModel(
-            this.generalModel.firstName,
-            this.generalModel.lastName,
-            this.generalModel.email,
-            this.generalModel.phone,
-            this.generalModel.address,
-            this.generalModel.profession,
+            model.firstName,
+            model.lastName,
+            model.email,
+            model.phone,
+            model.address,
+            model.profession,
             this.socialLinks,
             this.educations,
             this.jobs
         );
+    }
+
+    checkForUser() {
+        return !this.generalModel;
     }
 
     getEducationType(index: string): string {

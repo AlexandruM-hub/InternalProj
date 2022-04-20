@@ -1,5 +1,17 @@
-<div class="form-group col-xs-12 general">
-    <app-general-field [isSubmitted]="isSubmitted"></app-general-field>
+<div class="form-group col-xs-12 general" [formGroup]="generalFormGroup">
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'First Name'"
+                       [errorMessage]="'Please complete the field'" [control]="firstNameControl"></app-general-field>
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'Last Name'"
+                       [errorMessage]="'Please complete the field'" [control]="lastNameControl"></app-general-field>
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'email'"
+                       [errorMessage]="'Please enter a valid mail'" [control]="emailControl"></app-general-field>
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'Phone (+373 ...)'"
+                       [errorMessage]="'Please enter a valid phone number'"
+                       [control]="phoneControl"></app-general-field>
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'Physical Address'"
+                       [errorMessage]="'Please complete the field'" [control]="addressControl"></app-general-field>
+    <app-general-field [isSubmitted]="isSubmitted" [placeholder]="'Profession'"
+                       [errorMessage]="'Please complete the field'" [control]="professionControl"></app-general-field>
 </div>
 
 

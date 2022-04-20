@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {RegisterService} from "../register/services/register.service";
 import {UserModel} from "../register/interfaces/user.model";
 import {DataStorageService} from "../register/services/data-storage.service";
@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class SummaryComponent implements OnInit {
 
     userDetails: UserModel
+    @Output() isDisabled: boolean;
 
     constructor(private registerService: RegisterService,
                 private dataStorageService: DataStorageService,
@@ -19,6 +20,7 @@ export class SummaryComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.isDisabled = this.registerService.checkForUser();
         this.userDetails = this.registerService.getUserDetails();
     }
 
