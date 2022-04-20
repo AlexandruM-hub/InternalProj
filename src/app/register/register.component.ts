@@ -39,7 +39,7 @@ export class RegisterComponent {
             this.jobsComponent.sendJobsToService();
             this.socialComponent.sendSocialToService();
 
-            this.router.navigate(['../second']);
+            this.router.navigate(['../summary']);
         }
     }
 

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {GeneralFieldService} from "../../services/general-field.service";
 import {RegisterService} from "../../services/register.service";
-import {GeneralModel} from "../general.model";
+import {GeneralModel} from "../../interfaces/general.model";
 
 @Component({
     selector: 'app-general-field',

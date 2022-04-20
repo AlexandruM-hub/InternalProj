@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {UserModel} from "../user.model";
+import {UserModel} from "../interfaces/user.model";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({providedIn: 'root'})

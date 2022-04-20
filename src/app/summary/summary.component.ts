@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RegisterService} from "../register/services/register.service";
-import {UserModel} from "../register/user.model";
+import {UserModel} from "../register/interfaces/user.model";
 import {DataStorageService} from "../register/services/data-storage.service";
 import {Router} from "@angular/router";
 
@@ -31,7 +31,7 @@ export class SummaryComponent implements OnInit {
     }
 
     onBackButton() {
-        this.router.navigate(['../first']);
+        this.router.navigate(['../register']);
     }
 
 }

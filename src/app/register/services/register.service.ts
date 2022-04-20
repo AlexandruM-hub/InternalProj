@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
-import {UserModel} from "../user.model";
-import {EducationModel} from "../education/education.model";
-import {JobModel} from "../job/job.model";
-import {GeneralModel} from "../general/general.model";
-import {SocialModel} from "../social/social.model";
+import {UserModel} from "../interfaces/user.model";
+import {EducationModel} from "../interfaces/education.model";
+import {JobModel} from "../interfaces/job.model";
+import {GeneralModel} from "../interfaces/general.model";
+import {SocialModel} from "../interfaces/social.model";
 import {DatePipe} from "@angular/common";
 
 

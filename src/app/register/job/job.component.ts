@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../services/validators.service";
-import {JobModel} from "./job.model";
+import {JobModel} from "../interfaces/job.model";
 import {RegisterService} from "../services/register.service";
 
 @Component({

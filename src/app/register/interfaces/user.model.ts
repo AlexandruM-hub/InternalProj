@@ -1,6 +1,6 @@
-import {EducationModel} from "./education/education.model";
-import {JobModel} from "./job/job.model";
-import {SocialModel} from "./social/social.model";
+import {EducationModel} from "./education.model";
+import {JobModel} from "./job.model";
+import {SocialModel} from "./social.model";
 
 export class UserModel {
 
@@ -14,6 +14,7 @@ export class UserModel {
         public socialLinks: SocialModel[] = [],
         public educations: EducationModel[] = [],
         public jobs: JobModel[] = []
-    ) {}
+    ) {
+    }
 
 }

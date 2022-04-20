@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../services/validators.service";
 import {RegisterService} from "../services/register.service";
-import {EducationModel} from "./education.model";
+import {EducationModel} from "../interfaces/education.model";
 
 @Component({
     selector: 'app-education',
