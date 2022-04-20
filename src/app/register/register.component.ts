@@ -18,6 +18,8 @@ export class RegisterComponent {
     @ViewChild(JobComponent) jobsComponent: JobComponent;
     @ViewChild(SocialComponent) socialComponent: SocialComponent;
 
+    toSubmit = false;
+
     constructor(
         private router: Router,
         private validationService: ValidatorsService
@@ -25,18 +27,18 @@ export class RegisterComponent {
     }
 
     onSubmit() {
-        this.generalComponent.common.onSubmit();
-        this.educationComponent.onSubmit();
-        this.jobsComponent.onSubmit();
+        this.toSubmit = true;
 
         if (this.validationService.checkComponentsValidity(
             this.educationComponent,
             this.jobsComponent,
             this.generalComponent)) {
+
             this.generalComponent.common.sendDataToService();
             this.educationComponent.sendEducationsToService();
             this.jobsComponent.sendJobsToService();
             this.socialComponent.sendSocialToService();
+
             this.router.navigate(['../second']);
         }
     }

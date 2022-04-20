@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../services/validators.service";
 import {JobModel} from "./job.model";
@@ -12,7 +12,7 @@ import {RegisterService} from "../services/register.service";
 export class JobComponent implements OnInit {
 
     jobsFormGroup: FormGroup;
-    isSubmitted = false;
+    @Input() isSubmitted: boolean;
 
     constructor(private validatorsService: ValidatorsService,
                 private fb: FormBuilder,
@@ -57,11 +57,6 @@ export class JobComponent implements OnInit {
         this.getJobsFormArray.removeAt(index);
     }
 
-    onSubmit() {
-        this.isSubmitted = true;
-    }
-
-    //checkbox
     onChange(index: number, event: any) {
         let flag: boolean;
         if (event == true) {
@@ -84,8 +79,10 @@ export class JobComponent implements OnInit {
             (form) => {
                 const jobModel = new JobModel(
                     form.get('jobTitle').value,
-                    form.get('dates.enterDate').value,
-                    form.get('dates.endDate').value ? form.get('dates.endDate').value : new Date(),
+                    this.registerService.changeDateFormat(form.get('dates.enterDate').value),
+                    form.get('dates.endDate').value ?
+                        this.registerService.changeDateFormat(form.get('dates.endDate').value) :
+                        'Present',
                     form.get('city').value,
                     form.get('companyName').value
                 );

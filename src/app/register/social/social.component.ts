@@ -49,5 +49,4 @@ export class SocialComponent implements OnInit {
         );
     }
 
-
 }

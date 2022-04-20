@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {GeneralFieldService} from "../../services/general-field.service";
 import {RegisterService} from "../../services/register.service";
@@ -12,7 +12,7 @@ import {GeneralModel} from "../general.model";
 export class GeneralFieldComponent implements OnInit {
 
     generalFieldFormGroup: FormGroup;
-    isSubmitted = false;
+    @Input() isSubmitted: boolean;
 
     constructor(private fb: FormBuilder,
                 private generalFieldService: GeneralFieldService,
@@ -43,11 +43,6 @@ export class GeneralFieldComponent implements OnInit {
 
     get generalFormArray(): FormArray {
         return <FormArray>this.generalFieldFormGroup.get('fields');
-    }
-
-    onSubmit() {
-        this.isSubmitted = true;
-        console.log(this.generalFormArray.controls);
     }
 
     sendDataToService() {

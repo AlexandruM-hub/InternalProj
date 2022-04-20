@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../services/validators.service";
 import {RegisterService} from "../services/register.service";
@@ -10,8 +10,9 @@ import {EducationModel} from "./education.model";
     styleUrls: ['./education.component.css', '../../../styles.css']
 })
 export class EducationComponent implements OnInit {
+
     educationFormGroup: FormGroup;
-    isSubmitted = false;
+    @Input() isSubmitted: boolean;
 
     constructor(private validationService: ValidatorsService,
                 private fb: FormBuilder,
@@ -42,33 +43,17 @@ export class EducationComponent implements OnInit {
         this.getEducationsFormArray.removeAt(index);
     }
 
-    onSubmit() {
-        this.isSubmitted = true;
-    }
-
     sendEducationsToService() {
         this.getEducationsFormArray.controls.forEach(
             (form) => {
                 const newEducation = new EducationModel(
                     form.get('title').value,
-                    form.get('date').value,
-                    this.getEducationType(form.get('type').value)
+                    this.registerService.changeDateFormat(form.get('date').value),
+                    this.registerService.getEducationType(form.get('type').value)
                 );
                 this.registerService.addEducation(newEducation);
             }
         );
     }
 
-    getEducationType(index: string): string {
-        switch (index) {
-            case '1':
-                return 'Bachelor';
-            case '2':
-                return 'Superior';
-            case '3':
-                return 'Lyceum';
-            default:
-                return 'undefined';
-        }
-    }
 }

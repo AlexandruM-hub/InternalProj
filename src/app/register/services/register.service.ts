@@ -4,6 +4,7 @@ import {EducationModel} from "../education/education.model";
 import {JobModel} from "../job/job.model";
 import {GeneralModel} from "../general/general.model";
 import {SocialModel} from "../social/social.model";
+import {DatePipe} from "@angular/common";
 
 
 @Injectable({providedIn: 'root'})
@@ -20,7 +21,6 @@ export class RegisterService {
 
     addJob(jobModel: JobModel) {
         this.jobs.push(jobModel);
-        console.log(this.jobs);
     }
 
     addSocialLinks(link: string) {
@@ -43,6 +43,24 @@ export class RegisterService {
             this.educations,
             this.jobs
         );
+    }
+
+    getEducationType(index: string): string {
+        switch (index) {
+            case '1':
+                return 'Bachelor';
+            case '2':
+                return 'Superior';
+            case '3':
+                return 'Lyceum';
+            default:
+                return 'undefined';
+        }
+    }
+
+    changeDateFormat(date: Date) {
+        let pipe = new DatePipe('en-US');
+        return pipe.transform(date, 'MM/dd/yyyy');
     }
 
 }

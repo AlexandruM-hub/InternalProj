@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Input, Output, ViewChild} from '@angular/core';
 import {GeneralFieldComponent} from "./general-field/general-field.component";
 
 @Component({
@@ -8,6 +8,7 @@ import {GeneralFieldComponent} from "./general-field/general-field.component";
 })
 export class GeneralComponent {
 
+    @Input() @Output() isSubmitted: boolean;
     @ViewChild(GeneralFieldComponent) common: GeneralFieldComponent;
 
 }
