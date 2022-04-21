@@ -10,4 +10,7 @@ export class GeneralModel {
     ) {
     }
 
+    public static empty(): GeneralModel {
+        return new GeneralModel('', '', '', '', '', '');
+    }
 }

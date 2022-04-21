@@ -32,9 +32,7 @@ export class RegisterService {
     }
 
     getUserDetails() {
-        const model = !this.generalModel ?
-            new GeneralModel('', '', '', '', '', '') :
-            this.generalModel;
+        const model = this.generalModel || GeneralModel.empty();
         return new UserModel(
             model.firstName,
             model.lastName,

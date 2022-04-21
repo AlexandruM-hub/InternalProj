@@ -7,7 +7,7 @@ import {EducationModel} from "../interfaces/education.model";
 @Component({
     selector: 'app-education',
     templateUrl: './education.component.html',
-    styleUrls: ['./education.component.css', '../../../styles.css']
+    styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
 
